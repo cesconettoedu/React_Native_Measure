@@ -1,14 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, View, TouchableOpacity, Text, TextInput, StyleSheet, Image, KeyboardAvoidingView, Pressable, Modal, ImageBackground } from "react-native";
+import { View, Text, TextInput, StyleSheet, KeyboardAvoidingView } from "react-native";
 
 export default function App() {
 
   const [metroS, setMetroS] = useState('metro');
   const [metro, setMetro] = useState(0);
-  const [ft, setFt] = useState(0);
-  const [inches, setInches] = useState(0);
-
 
   const metroPlu = (metro) => {
     if(metro > 1){
@@ -18,28 +15,11 @@ export default function App() {
     }  
   }
 
-  const metroToFt = (metro) => {
-    let ft = 0
-    ft = (metro * 3.28084).toFixed(2);
-    setFt(ft)
-  }
-
-  const metroToInches = (metro) => {
-    let inches = 0
-    inches = (metro * 39.3701).toFixed(2);
-    setInches(inches)
-  }
-
-
-
   useEffect(() => {
     if(metro === ''){
       setMetro(0)
     }
     metroPlu(metro);
-    metroToFt(metro);
-    metroToInches(metro);
-
   },[metro])
 
 
@@ -51,9 +31,11 @@ export default function App() {
         style={styles.keyboardAvoid}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-        <Text> {ft} ft</Text>
-        <Text>{inches} inches</Text>
+        <Text> {(metro * 3.28084).toFixed(2)} ft</Text>
+        <Text> {(metro * 39.3701).toFixed(2)} inches</Text>
         <Text>{metro} {metroS}</Text>
+        <Text>{metro / 100} cm</Text>
+        <Text>{metro / 1000} mm</Text>
         <TextInput
           style={styles.input}
           underlineColorAndroid="transparent"

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "measure",
-    "slug": "measure",
+    "slug": "eds-measure",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "779ad3f3-f575-4812-b05e-5d8c7b02044f"
+      }
+    },
+    "owner": "cesconettoedu"
   }
 }

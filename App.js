@@ -27,27 +27,31 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
 
-      <KeyboardAvoidingView
-        style={styles.keyboardAvoid}
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-      >
-        <Text> {(metro * 3.28084).toFixed(2)} ft</Text>
-        <Text> {(metro * 39.3701).toFixed(2)} inches</Text>
-        <Text>{metro} {metroS}</Text>
-        <Text>{metro / 100} cm</Text>
-        <Text>{metro / 1000} mm</Text>
-        <TextInput
-          style={styles.input}
-          underlineColorAndroid="transparent"
-          placeholder=" metro(s)"
-          placeholderTextColor="#D3D3D3"
-          keyboardType="numeric"
-          maxLength={8}
-          value={metro}
-          onChangeText={setMetro}
-        />
 
-      </KeyboardAvoidingView>
+      <View style={styles.measure}>
+        <KeyboardAvoidingView
+          style={styles.keyboardAvoid}
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
+
+          <Text> {(metro * 3.28084).toFixed(2)} ft</Text>
+          <Text> {(metro * 39.3701).toFixed(2)} inches</Text>
+          <Text>{metro} {metroS}</Text>
+          <Text>{metro / 100} cm</Text>
+          <Text>{metro / 1000} mm</Text>
+          <TextInput
+            style={styles.input}
+            underlineColorAndroid="transparent"
+            placeholder=" metro(s)"
+            placeholderTextColor="#D3D3D3"
+            keyboardType="numeric"
+            maxLength={8}
+            value={metro}
+            onChangeText={setMetro}
+            />
+
+        </KeyboardAvoidingView>
+      </View>
     
     </View>
   );
@@ -57,15 +61,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+   margin: 10,
     justifyContent: 'center',
   },
   input: {
     borderRadius: 5,
     margin: 5,
     height: 40,
+    width: '30%',
     borderColor: "#4a4e69",
     borderWidth: 1,
     paddingLeft: 10
   },
+  measure: {
+    
+  }
 });

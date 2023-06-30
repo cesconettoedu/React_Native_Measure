@@ -31,6 +31,12 @@
         "projectId": "779ad3f3-f575-4812-b05e-5d8c7b02044f"
       }
     },
-    "owner": "cesconettoedu"
+    "owner": "cesconettoedu",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/779ad3f3-f575-4812-b05e-5d8c7b02044f"
+    }
   }
 }

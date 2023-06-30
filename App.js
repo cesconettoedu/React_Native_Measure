@@ -15,8 +15,7 @@ export default function App() {
       setMetroS('metros')
     } else {
       setMetroS('metro')
-    }
-    
+    }  
   }
 
   const metroToFt = (metro) => {
@@ -34,6 +33,9 @@ export default function App() {
 
 
   useEffect(() => {
+    if(metro === ''){
+      setMetro(0)
+    }
     metroPlu(metro);
     metroToFt(metro);
     metroToInches(metro);
@@ -49,14 +51,16 @@ export default function App() {
         style={styles.keyboardAvoid}
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-        <Text>{metro} {metroS} = {ft} ft = {inches} inches</Text>
+        <Text> {ft} ft</Text>
+        <Text>{inches} inches</Text>
+        <Text>{metro} {metroS}</Text>
         <TextInput
           style={styles.input}
           underlineColorAndroid="transparent"
-          placeholder=" metro"
-          placeholderTextColor="#4a4e69"
+          placeholder=" metro(s)"
+          placeholderTextColor="#D3D3D3"
           keyboardType="numeric"
-          maxLength={5}
+          maxLength={8}
           value={metro}
           onChangeText={setMetro}
         />

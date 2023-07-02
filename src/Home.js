@@ -8,12 +8,13 @@ import Off from '../assets/tests/off.png'
 export default function Home() {
 
   const [metroS, setMetroS] = useState('metro');
-  const [metro, setMetro] = useState(0);
+  const [numVal, setNumVal] = useState(0);
   const [ftBtn, setFtBtn] = useState(On);
   const [inchesBtn, setInchesBtn] = useState(Off);
   const [metroBtn, setMetroBtn] = useState(Off);
   const [cmBtn, setBtn] = useState(Off);
   const [mmBtn, setMmBtn] = useState(Off);
+  const [placeholder, setPlaceholder] = useState('')
 
 //to change word to plural
   const metroPlu = (metro) => {
@@ -26,29 +27,31 @@ export default function Home() {
 
   const measureBtn = (x) => {
     if(x === 1){
-       setFtBtn(On); setInchesBtn(Off); setMetroBtn(Off); setBtn(Off); setMmBtn(Off);
+        setFtBtn(On); setInchesBtn(Off); setMetroBtn(Off); setBtn(Off); setMmBtn(Off);
+        setPlaceholder("feet(s)")
     }
     if(x === 2){
         setFtBtn(Off); setInchesBtn(On); setMetroBtn(Off); setBtn(Off); setMmBtn(Off);
+        setPlaceholder("inches(s)")
     } 
     if(x === 3){
         setFtBtn(Off); setInchesBtn(Off); setMetroBtn(On); setBtn(Off); setMmBtn(Off);
+        setPlaceholder("metro(s)")
     }   
     if(x === 4){
         setFtBtn(Off); setInchesBtn(Off); setMetroBtn(Off); setBtn(On); setMmBtn(Off);
+        setPlaceholder("centimeters(s)")
     }   
     if(x === 5){
         setFtBtn(Off); setInchesBtn(Off); setMetroBtn(Off); setBtn(Off); setMmBtn(On);
+        setPlaceholder("milímetro(s)")
     }        
     }
   
 
   useEffect(() => {
-    if(metro === ''){
-      setMetro(0)
-    }
-    metroPlu(metro);
-  },[metro])
+  
+  },[numVal])
 
 
   return (
@@ -68,7 +71,7 @@ export default function Home() {
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text> {(metro * 3.28084).toFixed(2)} ft</Text>
+            <Text> {(numVal * 3.28084).toFixed(2)} ft</Text>
           </View>
 
            <View style={styles.metroContainer}>
@@ -78,7 +81,7 @@ export default function Home() {
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text> {(metro * 39.3701).toFixed(2)} inches</Text>
+            <Text> {(numVal * 39.3701).toFixed(2)} inches</Text>
           </View>
 
           <View style={styles.metroContainer}>
@@ -88,7 +91,7 @@ export default function Home() {
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text>{metro} {metroS}</Text>
+            <Text>{numVal} {metroS}</Text>
           </View>
 
           <View style={styles.metroContainer}>
@@ -98,7 +101,7 @@ export default function Home() {
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text>{metro / 100} cm</Text>
+            <Text>{numVal / 100} cm</Text>
           </View>
           
           <View style={styles.metroContainer}>
@@ -108,19 +111,19 @@ export default function Home() {
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text>{metro / 1000} mm</Text>
+            <Text>{numVal / 1000} mm</Text>
           </View>
          
 
             <TextInput
               style={styles.input}
               underlineColorAndroid="transparent"
-              placeholder=" metro(s)"
+              placeholder={placeholder}
               placeholderTextColor="#D3D3D3"
               keyboardType="numeric"
               maxLength={8}
-              value={metro}
-              onChangeText={setMetro}
+              value={numVal}
+              onChangeText={setNumVal}
               /> 
 
         </KeyboardAvoidingView>
@@ -134,14 +137,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f6f6f6',
-   margin: 10,
+    margin: 10,
     justifyContent: 'center',
   },
   input: {
     borderRadius: 5,
     margin: 5,
     height: 40,
-    width: '30%',
+    width: '33%',
     borderColor: "#4a4e69",
     borderWidth: 1,
     paddingLeft: 10

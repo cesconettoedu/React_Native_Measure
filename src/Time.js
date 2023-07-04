@@ -6,7 +6,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 export default function Time() {
 
   //////////////     PST    ////////////////////////////
-  const [datePst, setDatePst] = useState(new Date());
+  const [datePst, setDatePst] = useState(new Date(2019, 2, 18));
   const [modePst, setModePst] = useState('date');
   const [showPst, setShowPst] = useState(false);
   const [showPstEst, setShowPstEst] = useState(false);
@@ -46,7 +46,7 @@ export default function Time() {
 
   
   //////////////     EST    ////////////////////////////
-  const [dateEst, setDateEst] = useState(new Date());
+  const [dateEst, setDateEst] = useState(new Date(2019, 2, 18));
   const [modeEst, setModeEst] = useState('date');
   const [showEst, setShowEst] = useState(false);
   const [newPst, setNewPst] = useState();
@@ -82,6 +82,7 @@ export default function Time() {
     } else {
       setNewPst(newHour-3)
     }
+    
   }
   
   
@@ -90,58 +91,58 @@ export default function Time() {
   return (
     <SafeAreaView>
     
-    <View style={styles.timeContainer}>
-
-      <View>
-        <Text>Pacific{'\n'}PDT/PST</Text>
-          {showEstPst &&
-            <Text>{newPst}:{datePst.getMinutes().toLocaleString()}</Text>
-          }
-          {!showEstPst &&
-            <Text>{datePst.getHours().toLocaleString()}:{datePst.getMinutes().toLocaleString()}</Text>
-          }
-        
-        {showPst && (
-          <DateTimePicker
-          display="spinner"
-          testID="dateTimePicker"
-          value={datePst}
-          mode={modePst}
-          is24Hour={true}
-          onChange={onChangePst}
-          />
-          )}
-        <Button onPress={showTimepickerPst} title="Show time picker!" />
-      </View>
-
-
-      <View>
-        <Text>Eastern{'\n'}EDT/EST</Text>
-        
-        {showPstEst &&
-          <Text>{newEST}:{datePst.getMinutes().toLocaleString()}</Text>
-        }
-        {!showPstEst &&
-          <Text>{dateEst.getHours().toLocaleString()}:{dateEst.getMinutes().toLocaleString()}</Text>
-        }
-        
-        {showEst && (
-          <DateTimePicker
+      <Text style={styles.infoText}>Time Converter</Text>
+      
+      <View style={styles.timeContainer}>
+        <View>
+          <Text style={styles.infoText}>Pacific{'\n'}PDT/PST</Text>
+            {showEstPst &&
+              <Text style={styles.infoText}>{newPst}:{dateEst.getMinutes().toLocaleString()}</Text>
+            }
+            {!showEstPst &&
+              <Text style={styles.infoText}>{datePst.getHours().toLocaleString()}:{datePst.getMinutes().toLocaleString()}</Text>
+            }
+          
+          {showPst && (
+            <DateTimePicker
             display="spinner"
             testID="dateTimePicker"
-            value={dateEst}
-            mode={modeEst}
+            value={datePst}
+            mode={modePst}
+            minuteInterval={10}
             is24Hour={true}
-            onChange={onChangeEst}
-          />
-          )}
-        <Button style={{}} onPress={showTimepickerEst} title="Show time picker!" />
+            onChange={onChangePst}
+            />
+            )}
+          <Button onPress={showTimepickerPst} title="Show time picker!" />
+        </View>
 
 
-
-      </View>
-
-    </View>   
+        <View>
+          <Text style={styles.infoText}>Eastern{'\n'}EDT/EST</Text>
+          
+          {showPstEst &&
+            <Text style={styles.infoText}>{newEST}:{datePst.getMinutes().toLocaleString()}</Text>
+          }
+          {!showPstEst &&
+            <Text style={styles.infoText}>{dateEst.getHours().toLocaleString()}:{dateEst.getMinutes().toLocaleString()}</Text>
+          }
+          
+          {showEst && (
+            <DateTimePicker
+              display="spinner"
+              testID="dateTimePicker"
+              value={dateEst}
+              mode={modeEst}
+              minuteInterval={10}
+              is24Hour={true}
+              onChange={onChangeEst}
+            />
+            )}
+          <Button style={{}} onPress={showTimepickerEst} title="Show time picker!" />
+        </View>
+      
+      </View>   
     </SafeAreaView>
   );
 };
@@ -151,6 +152,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     justifyContent: 'space-around',
-
   },
+  infoText:{
+    textAlign:'center'
+  }
+
 });

@@ -3,6 +3,7 @@ import { View, StyleSheet } from "react-native";
 
 import Measure from './src/Measure';
 import Time from './src/Time';
+import Weight from './src/Weight';
 
 export default function App() {
 
@@ -13,6 +14,7 @@ export default function App() {
 
       <Measure/>
       <Time/>
+      <Weight/>
 
       
     </View>

@@ -5,6 +5,8 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 
 export default function Time() {
 
+  const [min, setMin] = useState('00');
+
   //////////////     PST    ////////////////////////////
   const [datePst, setDatePst] = useState(new Date(2019, 2, 18));
   const [modePst, setModePst] = useState('date');
@@ -17,6 +19,7 @@ export default function Time() {
     setShowPst(false);
     setDatePst(currentDate);
     hoursPlusthree(currentDate);
+    zeroOnMinute(currentDate);
   };
 
   const showModePst = (currentMode) => {
@@ -57,6 +60,7 @@ export default function Time() {
     setShowEst(false);
     setDateEst(currentDate);
     hoursLessthree(currentDate);
+    zeroOnMinute(currentDate);
   };
   
   const showModeEst = (currentMode) => {
@@ -87,6 +91,19 @@ export default function Time() {
   
   
 
+  const zeroOnMinute = (datePst) => {
+    let newMin = datePst.getMinutes();
+    
+    if(newMin === 0){
+      setMin('00')
+    } else {
+      setMin(newMin)
+    }
+    
+  }
+
+
+
 
   return (
     <SafeAreaView>
@@ -97,10 +114,10 @@ export default function Time() {
         <View>
           <Text style={styles.infoText}>Pacific{'\n'}PDT/PST</Text>
             {showEstPst &&
-              <Text style={styles.infoTextTime}>{newPst}:{dateEst.getMinutes().toLocaleString()}</Text>
+              <Text style={styles.infoTextTime}>{newPst}:{min}</Text>
             }
             {!showEstPst &&
-              <Text style={styles.infoTextTime}>{datePst.getHours().toLocaleString()}:{datePst.getMinutes().toLocaleString()}</Text>
+              <Text style={styles.infoTextTime}>{datePst.getHours().toLocaleString()}:{min}</Text>
             }
           
           {showPst && (
@@ -122,10 +139,10 @@ export default function Time() {
           <Text style={styles.infoText}>Eastern{'\n'}EDT/EST</Text>
           
           {showPstEst &&
-            <Text style={styles.infoTextTime}>{newEST}:{datePst.getMinutes().toLocaleString()}</Text>
+            <Text style={styles.infoTextTime}>{newEST}:{min}</Text>
           }
           {!showPstEst &&
-            <Text style={styles.infoTextTime}>{dateEst.getHours().toLocaleString()}:{dateEst.getMinutes().toLocaleString()}</Text>
+            <Text style={styles.infoTextTime}>{dateEst.getHours().toLocaleString()}:{min}</Text>
           }
           
           {showEst && (

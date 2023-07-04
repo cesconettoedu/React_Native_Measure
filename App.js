@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { View, StyleSheet } from "react-native";
 
 import Measure from './src/Measure';
+import Time from './src/Time';
 
 export default function App() {
 
@@ -11,6 +12,7 @@ export default function App() {
       <StatusBar style="auto" />
 
       <Measure/>
+      <Time/>
 
       
     </View>

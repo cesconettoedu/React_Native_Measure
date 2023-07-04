@@ -91,16 +91,16 @@ export default function Time() {
   return (
     <SafeAreaView>
     
-      <Text style={styles.infoText}>Time Converter</Text>
+      <Text style={styles.infoTextTitle}>Time Converter</Text>
       
       <View style={styles.timeContainer}>
         <View>
           <Text style={styles.infoText}>Pacific{'\n'}PDT/PST</Text>
             {showEstPst &&
-              <Text style={styles.infoText}>{newPst}:{dateEst.getMinutes().toLocaleString()}</Text>
+              <Text style={styles.infoTextTime}>{newPst}:{dateEst.getMinutes().toLocaleString()}</Text>
             }
             {!showEstPst &&
-              <Text style={styles.infoText}>{datePst.getHours().toLocaleString()}:{datePst.getMinutes().toLocaleString()}</Text>
+              <Text style={styles.infoTextTime}>{datePst.getHours().toLocaleString()}:{datePst.getMinutes().toLocaleString()}</Text>
             }
           
           {showPst && (
@@ -122,10 +122,10 @@ export default function Time() {
           <Text style={styles.infoText}>Eastern{'\n'}EDT/EST</Text>
           
           {showPstEst &&
-            <Text style={styles.infoText}>{newEST}:{datePst.getMinutes().toLocaleString()}</Text>
+            <Text style={styles.infoTextTime}>{newEST}:{datePst.getMinutes().toLocaleString()}</Text>
           }
           {!showPstEst &&
-            <Text style={styles.infoText}>{dateEst.getHours().toLocaleString()}:{dateEst.getMinutes().toLocaleString()}</Text>
+            <Text style={styles.infoTextTime}>{dateEst.getHours().toLocaleString()}:{dateEst.getMinutes().toLocaleString()}</Text>
           }
           
           {showEst && (
@@ -152,9 +152,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     justifyContent: 'space-around',
+    marginBottom: 30
+  },
+  infoTextTitle:{
+    textAlign:'center', 
+    fontSize: 20,
+    paddingBottom: 10,
   },
   infoText:{
     textAlign:'center'
+  },
+  infoTextTime:{
+    fontSize: 25,
+    textAlign:'center',
+    fontWeight: 800,
+    paddingBottom: 10,
   }
 
 });

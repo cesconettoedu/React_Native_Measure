@@ -92,7 +92,7 @@ export default function Measure() {
           behavior={Platform.OS === "ios" ? "padding" : "height"}
         >
           
-          <Text>Measure Converter</Text>
+          <Text style={styles.infoTextTitle}>Measure Converter</Text>
 
           <View style={styles.metroContainer}>
             <TouchableOpacity  onPress={() => {setMeasureBtnNum(1)} }>
@@ -101,7 +101,7 @@ export default function Measure() {
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text> {ftFormula} ft</Text>
+            <Text style={styles.numResult}> {ftFormula} ft</Text>
           </View>
 
            <View style={styles.metroContainer}>
@@ -111,7 +111,7 @@ export default function Measure() {
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text> {inchesFormula} inches</Text>
+            <Text style={styles.numResult}> {inchesFormula} inches</Text>
           </View>
 
           <View style={styles.metroContainer}>
@@ -121,7 +121,7 @@ export default function Measure() {
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text>{metroFormula} metro</Text>
+            <Text style={styles.numResult}>{metroFormula} metro</Text>
           </View>
 
           <View style={styles.metroContainer}>
@@ -131,7 +131,7 @@ export default function Measure() {
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text>{cmFormula} cm</Text>
+            <Text style={styles.numResult}>{cmFormula} cm</Text>
           </View>
           
           <View style={styles.metroContainer}>
@@ -141,7 +141,7 @@ export default function Measure() {
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text>{mmFormula} mm</Text>
+            <Text style={styles.numResult}>{mmFormula} mm</Text>
           </View>
          
 
@@ -185,5 +185,14 @@ const styles = StyleSheet.create({
   metroContainer: {
     flexDirection: 'row',
     marginBottom: 10,
+  },
+  infoTextTitle: {
+    textAlign:'center', 
+    fontSize: 20,
+    paddingBottom: 10,
+  },
+  numResult: {
+    fontSize: 17,
+    fontWeight: 800,
   }
 });

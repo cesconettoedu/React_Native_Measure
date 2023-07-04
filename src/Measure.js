@@ -157,7 +157,7 @@ export default function Measure() {
               //onChangeText={setNumVal}
               onChangeText={setNumVal}
               // value={numVal.toString()}
-              /> 
+            /> 
 
         </KeyboardAvoidingView>
       </View>

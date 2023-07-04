@@ -1,6 +1,5 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState, useEffect } from "react";
-import { View, Text, TextInput, StyleSheet, Button, SafeAreaView } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, Button, SafeAreaView } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
 export default function Time() {
@@ -90,7 +89,7 @@ export default function Time() {
   }
   
   
-
+//just to put a 00 when the min is 0
   const zeroOnMinute = (datePst) => {
     let newMin = datePst.getMinutes();
     
@@ -112,7 +111,7 @@ export default function Time() {
       
       <View style={styles.timeContainer}>
         <View>
-          <Text style={styles.infoText}>Pacific{'\n'}PDT/PST</Text>
+          <Text style={styles.infoText}>Pacific - PDT/PST{'\n'} Vancouver</Text>
             {showEstPst &&
               <Text style={styles.infoTextTime}>{newPst}:{min}</Text>
             }
@@ -136,7 +135,7 @@ export default function Time() {
 
 
         <View>
-          <Text style={styles.infoText}>Eastern{'\n'}EDT/EST</Text>
+          <Text style={styles.infoText}>Eastern - EDT/EST{'\n'}Toronto</Text>
           
           {showPstEst &&
             <Text style={styles.infoTextTime}>{newEST}:{min}</Text>

@@ -6,7 +6,7 @@ import Off from '../assets/tests/off.png'
 
 
 
-export default function Home() {
+export default function Measure() {
 
   const [numVal, setNumVal] = useState('');
   const [ftBtn, setFtBtn] = useState(Off);

@@ -29,45 +29,45 @@ export default function Measure() {
       setFtBtn(On); setInchesBtn(Off); setMetroBtn(Off); setBtn(Off); setMmBtn(Off);
       setPlaceholder("feet(s)");
       setFtFormula(numVal);
-      setInchesFormula((numVal * 12).toFixed(2)); 
-      setMetroFormula((numVal / 0.3048).toFixed(2)); 
-      setCmFormula((numVal / 30.48).toFixed(2)); 
-      setMmFormula((numVal / 304.8).toFixed(2));
+      setInchesFormula((numVal * 12).toFixed(3)); 
+      setMetroFormula((numVal / 3.281).toFixed(3)); 
+      setCmFormula((numVal * 30.48).toFixed(3)); 
+      setMmFormula((numVal * 304.8).toFixed(3));
     }
     if(measureBtnNum === 2){
       setFtBtn(Off); setInchesBtn(On); setMetroBtn(Off); setBtn(Off); setMmBtn(Off);
       setPlaceholder("inches(s)");
-      setFtFormula((numVal / 12).toFixed(2));
+      setFtFormula((numVal / 12).toFixed(3));
       setInchesFormula(numVal); 
-      setMetroFormula((numVal / 39.37).toFixed(2)); 
-      setCmFormula((numVal * 2.54).toFixed(2)); 
-      setMmFormula((numVal * 25.4).toFixed(2));
+      setMetroFormula((numVal / 39.37).toFixed(3)); 
+      setCmFormula((numVal * 2.54).toFixed(3)); 
+      setMmFormula((numVal * 25.4).toFixed(3));
     } 
     if(measureBtnNum === 3){
       setFtBtn(Off); setInchesBtn(Off); setMetroBtn(On); setBtn(Off); setMmBtn(Off);
       setPlaceholder("metro(s)");
-      setFtFormula((numVal * 3.28084).toFixed(2));
-      setInchesFormula((numVal * 39.3701).toFixed(2)); 
+      setFtFormula((numVal * 3.28084).toFixed(3));
+      setInchesFormula((numVal * 39.3701).toFixed(3)); 
       setMetroFormula(numVal); 
-      setCmFormula((numVal / 100).toFixed(2)); 
-      setMmFormula((numVal / 1000).toFixed(2));
+      setCmFormula((numVal / 100).toFixed(3)); 
+      setMmFormula((numVal / 1000).toFixed(3));
     }   
     if(measureBtnNum === 4){
       setFtBtn(Off); setInchesBtn(Off); setMetroBtn(Off); setBtn(On); setMmBtn(Off);
       setPlaceholder("centimeters(s)");
-      setFtFormula((numVal / 30.484).toFixed(2));
-      setInchesFormula((numVal / 2.54).toFixed(2)); 
-      setMetroFormula((numVal / 100).toFixed(2)); 
+      setFtFormula((numVal / 30.484).toFixed(3));
+      setInchesFormula((numVal / 2.54).toFixed(3)); 
+      setMetroFormula((numVal / 100).toFixed(3)); 
       setCmFormula(numVal); 
-      setMmFormula((numVal * 10).toFixed(2));
+      setMmFormula((numVal * 10).toFixed(3));
     }   
     if(measureBtnNum === 5){
       setFtBtn(Off); setInchesBtn(Off); setMetroBtn(Off); setBtn(Off); setMmBtn(On);
       setPlaceholder("milímetro(s)");
-      setFtFormula((numVal / 304.8).toFixed(2));
-      setInchesFormula((numVal / 25.4).toFixed(2)); 
-      setMetroFormula((numVal / 1000).toFixed(2)); 
-      setCmFormula((numVal / 10).toFixed(2)); 
+      setFtFormula((numVal / 304.8).toFixed(3));
+      setInchesFormula((numVal / 25.4).toFixed(3)); 
+      setMetroFormula((numVal / 1000).toFixed(3)); 
+      setCmFormula((numVal / 10).toFixed(3)); 
       setMmFormula(numVal);
     }        
   }

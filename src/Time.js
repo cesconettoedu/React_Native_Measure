@@ -4,40 +4,14 @@ import { View, Text, TextInput, StyleSheet, Button, SafeAreaView } from "react-n
 import DateTimePicker from "@react-native-community/datetimepicker";
 
 export default function Time() {
-  
-  const [dateEst, setDateEst] = useState(new Date(1598051730000));
-  const [modeEst, setModeEst] = useState('date');
-  const [showEst, setShowEst] = useState(false);
 
-  
-  
-  
-  //////////////     EST    ////////////////////////////
-  const onChangeEst = (event, selectedDate) => {
-    const currentDate = selectedDate;
-    setShowEst(false);
-    setDateEst(currentDate);
-  };
-
-  const showModeEst = (currentMode) => {
-    setShowEst(true);
-    setModeEst(currentMode);
-  };
-  
-  const showTimepickerEst = () => {
-    showModeEst('time');
-  };
-  
-  
-  
-  
-  const [datePst, setDatePst] = useState(new Date(1598051730000));
+  //////////////     PST    ////////////////////////////
+  const [datePst, setDatePst] = useState(new Date());
   const [modePst, setModePst] = useState('date');
   const [showPst, setShowPst] = useState(false);
   const [showPstEst, setShowPstEst] = useState(false);
   const [newEST, setNewEST] = useState();
   
-  //////////////     PST    ////////////////////////////
   const onChangePst = (event, selectedDate) => {
     const currentDate = selectedDate;
     setShowPst(false);
@@ -52,14 +26,13 @@ export default function Time() {
 
   const showTimepickerPst = () => {
     showModePst('time');
+    setShowEstPst(false);
     setShowPstEst(true);
-    
   };
 
   const hoursPlusthree = (datePst) => {
-    // console.log(datePst.getHours());
     let newHour = datePst.getHours();
-    //console.log(newHour);
+    
     if(newHour === 21){
       setNewEST(0)
     } else if (newHour === 22){
@@ -69,8 +42,49 @@ export default function Time() {
     } else {
       setNewEST(newHour+3)
     }
-   
   }
+
+  
+  //////////////     EST    ////////////////////////////
+  const [dateEst, setDateEst] = useState(new Date());
+  const [modeEst, setModeEst] = useState('date');
+  const [showEst, setShowEst] = useState(false);
+  const [newPst, setNewPst] = useState();
+  const [showEstPst, setShowEstPst] = useState(false);
+
+  const onChangeEst = (event, selectedDate) => {
+    const currentDate = selectedDate;
+    setShowEst(false);
+    setDateEst(currentDate);
+    hoursLessthree(currentDate);
+  };
+  
+  const showModeEst = (currentMode) => {
+    setShowEst(true);
+    setModeEst(currentMode);
+  };
+  
+  const showTimepickerEst = () => {
+    showModeEst('time');
+    setShowPstEst(false);
+    setShowEstPst(true);
+  };
+  
+  const hoursLessthree = (datePst) => {
+    let newHour = datePst.getHours();
+    
+    if(newHour === 0){
+      setNewPst(21)
+    } else if (newHour === 1){
+      setNewPst(22)
+    } else if(newHour === 2){
+      setNewPst(23)
+    } else {
+      setNewPst(newHour-3)
+    }
+  }
+  
+  
 
 
   return (
@@ -80,9 +94,16 @@ export default function Time() {
 
       <View>
         <Text>Pacific{'\n'}PDT/PST</Text>
-        <Text>{datePst.getHours().toLocaleString()}:{datePst.getMinutes().toLocaleString()}</Text>
+          {showEstPst &&
+            <Text>{newPst}:{datePst.getMinutes().toLocaleString()}</Text>
+          }
+          {!showEstPst &&
+            <Text>{datePst.getHours().toLocaleString()}:{datePst.getMinutes().toLocaleString()}</Text>
+          }
+        
         {showPst && (
           <DateTimePicker
+          display="spinner"
           testID="dateTimePicker"
           value={datePst}
           mode={modePst}
@@ -92,11 +113,6 @@ export default function Time() {
           )}
         <Button onPress={showTimepickerPst} title="Show time picker!" />
       </View>
-
-
-
-
-
 
 
       <View>
@@ -111,6 +127,7 @@ export default function Time() {
         
         {showEst && (
           <DateTimePicker
+            display="spinner"
             testID="dateTimePicker"
             value={dateEst}
             mode={modeEst}

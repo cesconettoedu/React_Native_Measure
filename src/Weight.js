@@ -58,10 +58,10 @@ export default function Weight() {
   },[convertOne, kilo, grams, lbPound, oz])
 
   useEffect(() => {
-    setGrams(0);
-    setLbPound(0);
-    setOz(0);
-    setKilo(0);
+    setGrams('');
+    setLbPound('');
+    setOz('');
+    setKilo('');
   },[convertOne])
 
 
@@ -86,7 +86,7 @@ export default function Weight() {
               keyboardType="numeric"
               maxLength={8}
               onFocus={onFocusKg}
-              value={kilo}
+              value={String(kilo)}
               onChangeText={setKilo}
             /> 
                
@@ -111,7 +111,7 @@ export default function Weight() {
             keyboardType="numeric"
             maxLength={8}
             onFocus={onFocusGr}
-            value={grams}
+            value={String(grams)}
             onChangeText={setGrams}
           /> 
         </View>
@@ -135,7 +135,7 @@ export default function Weight() {
             keyboardType="numeric"
             maxLength={8}
             onFocus={onFocusLb}
-            value={lbPound}
+            value={String(lbPound)}
             onChangeText={setLbPound}
           /> 
         </View>
@@ -159,7 +159,7 @@ export default function Weight() {
             keyboardType="numeric"
             maxLength={8}
             onFocus={onFocusOz}
-            value={oz}
+            value={String(oz)}
             onChangeText={setOz}
           /> 
         </View>

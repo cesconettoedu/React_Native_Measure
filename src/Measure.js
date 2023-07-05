@@ -44,7 +44,7 @@ export default function Measure() {
     } 
     if(measureBtnNum === 3){
       setFtBtn(Off); setInchesBtn(Off); setMetroBtn(On); setBtn(Off); setMmBtn(Off);
-      setPlaceholder("metro(s)");
+      setPlaceholder("metter(s)");
       setFtFormula((numVal * 3.28084).toFixed(3));
       setInchesFormula((numVal * 39.3701).toFixed(3)); 
       setMetroFormula(numVal); 
@@ -53,7 +53,7 @@ export default function Measure() {
     }   
     if(measureBtnNum === 4){
       setFtBtn(Off); setInchesBtn(Off); setMetroBtn(Off); setBtn(On); setMmBtn(Off);
-      setPlaceholder("centimeters(s)");
+      setPlaceholder("centimeter(s)");
       setFtFormula((numVal / 30.484).toFixed(3));
       setInchesFormula((numVal / 2.54).toFixed(3)); 
       setMetroFormula((numVal / 100).toFixed(3)); 
@@ -62,7 +62,7 @@ export default function Measure() {
     }   
     if(measureBtnNum === 5){
       setFtBtn(Off); setInchesBtn(Off); setMetroBtn(Off); setBtn(Off); setMmBtn(On);
-      setPlaceholder("milímetro(s)");
+      setPlaceholder("millimeter(s)");
       setFtFormula((numVal / 304.8).toFixed(3));
       setInchesFormula((numVal / 25.4).toFixed(3)); 
       setMetroFormula((numVal / 1000).toFixed(3)); 
@@ -108,7 +108,7 @@ export default function Measure() {
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text style={styles.numResult}> {inchesFormula} inches</Text>
+            <Text style={styles.numResult}> {inchesFormula} in</Text>
           </View>
 
           <View style={styles.metroContainer}>
@@ -118,7 +118,7 @@ export default function Measure() {
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text style={styles.numResult}>{metroFormula} metro</Text>
+            <Text style={styles.numResult}>{metroFormula} m</Text>
           </View>
 
           <View style={styles.metroContainer}>

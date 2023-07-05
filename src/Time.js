@@ -106,8 +106,9 @@ export default function Time() {
 
 
   return (
-    <SafeAreaView>
-    
+   <View style={{backgroundColor: '#f6f6f6'}}>
+
+       
       <Text style={styles.infoTextTitle}>Time Converter</Text>
       
       <View style={styles.timeContainer}>
@@ -165,7 +166,7 @@ export default function Time() {
         </View>
       
       </View>   
-    </SafeAreaView>
+    </View>
   );
 };
 

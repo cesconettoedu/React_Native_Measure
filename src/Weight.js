@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, StyleSheet, TextInput, SafeAreaView } from "react-native";
+import { View, Text, Image, StyleSheet, TextInput } from "react-native";
 import arrow from '../assets/tests/bidirectionArrow1.png'
 
 
@@ -7,7 +7,7 @@ export default function Weight() {
 
 
   return (
-    <SafeAreaView>
+    < View style={styles.container}>
     
       <Text style={styles.infoTextTitle}>Weight Converter</Text>
 
@@ -101,11 +101,15 @@ export default function Weight() {
 
       </View>
        
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: 20,
+    backgroundColor: '#f6f6f6'
+  },
   infoTextTitle:{
     textAlign:'center', 
     fontSize: 20,
@@ -130,7 +134,6 @@ const styles = StyleSheet.create({
   },
   wichOne: {
     alignItems:'center',
-    
   }  
  
 });

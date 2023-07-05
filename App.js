@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, SafeAreaView } from "react-native";
 
 import Measure from './src/Measure';
 import Time from './src/Time';
@@ -9,24 +9,28 @@ export default function App() {
 
 
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
+    <SafeAreaView>
+      <View style={styles.container}>
+  
+        <StatusBar style="auto" />
 
-      <Measure/>
-      <Time/>
-      <Weight/>
-
-      
+        <Weight/>
+        <Measure/>
+        <Time/>
+        
     </View>
+  </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#f6f6f6',
     margin: 10,
+    marginTop: 70,
     justifyContent: 'center',
   },
+  compon:{
+
+  }
  
 });

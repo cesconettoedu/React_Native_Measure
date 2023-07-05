@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity,Image } from "react-native";
 import On from '../assets/tests/on.png'
@@ -84,9 +83,7 @@ export default function Measure() {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
-
-
+      
       <View >
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -168,10 +165,9 @@ export default function Measure() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#f6f6f6',
-    margin: 10,
     justifyContent: 'center',
+    marginBottom: 20
   },
   input: {
     borderRadius: 5,

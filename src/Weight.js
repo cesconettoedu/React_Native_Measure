@@ -19,7 +19,7 @@ export default function Weight() {
           <TextInput
             style={styles.input}
             underlineColorAndroid="transparent"
-            placeholder='   0.0 Kg'
+            placeholder='  0.0 Kg'
             placeholderTextColor="#D3D3D3"
             numeric
             keyboardType="numeric"
@@ -42,7 +42,7 @@ export default function Weight() {
           <TextInput
             style={styles.input}
             underlineColorAndroid="transparent"
-            placeholder='   0.0 g'
+            placeholder='  0.0 g'
             placeholderTextColor="#D3D3D3"
             numeric
             keyboardType="numeric"
@@ -65,7 +65,7 @@ export default function Weight() {
           <TextInput
             style={styles.input}
             underlineColorAndroid="transparent"
-            placeholder='   0.0 lbs'
+            placeholder='  0.0 lbs'
             placeholderTextColor="#D3D3D3"
             numeric
             keyboardType="numeric"
@@ -88,7 +88,7 @@ export default function Weight() {
           <TextInput
             style={styles.input}
             underlineColorAndroid="transparent"
-            placeholder='   0.0 oz '
+            placeholder='  0.0 oz '
             placeholderTextColor="#D3D3D3"
             numeric
             keyboardType="numeric"
@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
     width: 60,
     borderColor: "#4a4e69",
     borderWidth: 1,
+    paddingLeft: 5
   },
   arrows: {
     bottom: -35,

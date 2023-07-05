@@ -1,9 +1,69 @@
-import React, { useState } from "react";
-import { View, Text, Image, StyleSheet, TextInput } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Text, Image, StyleSheet, TextInput, Pressable } from "react-native";
 import arrow from '../assets/tests/bidirectionArrow1.png'
 
 
 export default function Weight() {
+
+  const [convertOne, setConvertOne] = useState();
+  const [kilo, setKilo] = useState();
+  const [grams, setGrams] = useState();
+  const [lbPound, setLbPound] = useState();
+  const [oz, setOz] = useState();
+
+  
+  onFocusKg = () => {
+    setConvertOne(1)
+  }
+
+  onFocusGr = () => {
+    setConvertOne(2)
+  }
+
+  onFocusLb = () => {
+    setConvertOne(3)
+  }
+
+  onFocusOz = () => {
+    setConvertOne(4)
+  }
+
+  
+  convertAll = () => {
+    if(convertOne === 1){
+      setGrams(`${kilo * 1000}`)
+      setLbPound(`${kilo * 2.205}`)
+      setOz(`${kilo * 35.274}`)
+    }
+    if(convertOne === 2){
+      setKilo(`${grams / 1000}`)
+      setLbPound(`${grams / 453.6}`)
+      setOz(`${grams / 28.35}`)
+    }
+    if(convertOne === 3){
+      setKilo(`${lbPound / 2.205}`)
+      setGrams(`${lbPound * 453.6}`)
+      setOz(`${lbPound * 10}`)
+    }
+    if(convertOne === 4){
+      setKilo(`${oz / 35.274}`)
+      setGrams(`${oz * 28.35}`)
+      setLbPound(`${oz / 28.35}`)
+    }
+  }
+
+
+  useEffect(() => {
+    convertAll(convertOne);
+  },[convertOne, kilo, grams, lbPound, oz])
+
+  useEffect(() => {
+    setGrams(0);
+    setLbPound(0);
+    setOz(0);
+    setKilo(0);
+  },[convertOne])
+
 
 
   return (
@@ -15,18 +75,21 @@ export default function Weight() {
       <View style={styles.weightCont}>
 
         <View style={styles.wichOne}>
-          <Text>kilo</Text>       
-          <TextInput
-            style={styles.input}
-            underlineColorAndroid="transparent"
-            placeholder='  0.0 Kg'
-            placeholderTextColor="#D3D3D3"
-            numeric
-            keyboardType="numeric"
-            maxLength={8}
-            // value={numVal}
-            // onChangeText={setNumVal}
-          /> 
+          <Text>kilo</Text>  
+          
+            <TextInput
+              style={styles.input}
+              underlineColorAndroid="transparent"
+              placeholder='  0.0 Kg'
+              placeholderTextColor="#D3D3D3"
+              numeric
+              keyboardType="numeric"
+              maxLength={8}
+              onFocus={onFocusKg}
+              value={kilo}
+              onChangeText={setKilo}
+            /> 
+               
         </View>
 
 
@@ -47,8 +110,9 @@ export default function Weight() {
             numeric
             keyboardType="numeric"
             maxLength={8}
-            // value={numVal}
-            // onChangeText={setNumVal}
+            onFocus={onFocusGr}
+            value={grams}
+            onChangeText={setGrams}
           /> 
         </View>
 
@@ -70,8 +134,9 @@ export default function Weight() {
             numeric
             keyboardType="numeric"
             maxLength={8}
-            // value={numVal}
-            // onChangeText={setNumVal}
+            onFocus={onFocusLb}
+            value={lbPound}
+            onChangeText={setLbPound}
           /> 
         </View>
 
@@ -93,8 +158,9 @@ export default function Weight() {
             numeric
             keyboardType="numeric"
             maxLength={8}
-            // value={numVal}
-            // onChangeText={setNumVal}
+            onFocus={onFocusOz}
+            value={oz}
+            onChangeText={setOz}
           /> 
         </View>
  
@@ -123,7 +189,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 5,
     height: 40,
-    width: 60,
+    width: 70,
     borderColor: "#4a4e69",
     borderWidth: 1,
     paddingLeft: 5

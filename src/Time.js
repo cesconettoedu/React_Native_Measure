@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Button, SafeAreaView, Image } from "react-native";
+import { View, Text, StyleSheet, Button, Image, TouchableOpacity } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import arrow from '../assets/tests/bidirectionArrow1.png'
+import clock from '../assets/tests/clock.png'
 
 export default function Time() {
 
@@ -106,7 +107,7 @@ export default function Time() {
 
 
   return (
-   <View style={{backgroundColor: '#f6f6f6'}}>
+   <View style={styles.timeAll}>
 
        
       <Text style={styles.infoTextTitle}>Time Converter</Text>
@@ -132,7 +133,12 @@ export default function Time() {
             onChange={onChangePst}
             />
             )}
-          <Button onPress={showTimepickerPst} title="Show time picker!" />
+          <TouchableOpacity onPress={showTimepickerPst} style={{alignItems: 'center'}}>
+            <Image style={styles.clock}
+              source={clock}
+              alt="clock"
+            />  
+          </TouchableOpacity>
         </View>
           
         <Image style={styles.arrows}
@@ -162,7 +168,12 @@ export default function Time() {
               onChange={onChangeEst}
             />
             )}
-          <Button style={{}} onPress={showTimepickerEst} title="Show time picker!" />
+          <TouchableOpacity onPress={showTimepickerEst} style={{alignItems: 'center'}}>
+            <Image style={styles.clock}
+              source={clock}
+              alt="clock"
+            />  
+          </TouchableOpacity>
         </View>
       
       </View>   
@@ -171,11 +182,15 @@ export default function Time() {
 };
 
 const styles = StyleSheet.create({
+  timeAll: {
+    backgroundColor: '#f6f6f6',
+    height: 215
+  },
   timeContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     justifyContent: 'space-around',
-    marginBottom: 30
+    marginBottom: 30,
   },
   infoTextTitle:{
     textAlign:'center', 
@@ -193,6 +208,11 @@ const styles = StyleSheet.create({
   },
   arrows: {
     bottom: -40
+  },
+  clock: {
+    width: 90,
+    height:80,
+    
   }
 
 });

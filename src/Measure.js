@@ -151,9 +151,7 @@ export default function Measure() {
               keyboardType="numeric"
               maxLength={8}
               value={numVal}
-              //onChangeText={setNumVal}
               onChangeText={setNumVal}
-              // value={numVal.toString()}
             /> 
 
         </KeyboardAvoidingView>
@@ -188,6 +186,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   numResult: {
+    paddingLeft: 15,
     fontSize: 17,
     fontWeight: 800,
   }

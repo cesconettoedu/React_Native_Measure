@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Button, SafeAreaView } from "react-native";
+import { View, Text, StyleSheet, Button, SafeAreaView, Image } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import arrow from '../assets/tests/bidirectionArrow1.png'
 
 export default function Time() {
 
@@ -132,7 +133,12 @@ export default function Time() {
             )}
           <Button onPress={showTimepickerPst} title="Show time picker!" />
         </View>
-
+          
+        <Image style={styles.arrows}
+          source={arrow}
+          resizeMode="contain"
+          alt="arrow"
+        />  
 
         <View>
           <Text style={styles.infoText}>Eastern - EDT/EST{'\n'}Toronto</Text>
@@ -183,6 +189,9 @@ const styles = StyleSheet.create({
     textAlign:'center',
     fontWeight: 800,
     paddingBottom: 10,
+  },
+  arrows: {
+    bottom: -40
   }
 
 });

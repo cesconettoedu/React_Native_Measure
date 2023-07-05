@@ -43,12 +43,12 @@ export default function Weight() {
     if(convertOne === 3){
       setKilo(`${lbPound / 2.205}`)
       setGrams(`${lbPound * 453.6}`)
-      setOz(`${lbPound * 10}`)
+      setOz(`${lbPound * 16}`)
     }
     if(convertOne === 4){
       setKilo(`${oz / 35.274}`)
       setGrams(`${oz * 28.35}`)
-      setLbPound(`${oz / 28.35}`)
+      setLbPound(`${oz / 16}`)
     }
   }
 

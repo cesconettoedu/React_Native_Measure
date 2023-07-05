@@ -13,7 +13,8 @@ export default function Measure() {
   const [metroBtn, setMetroBtn] = useState(Off);
   const [cmBtn, setBtn] = useState(Off);
   const [mmBtn, setMmBtn] = useState(Off);
-  const [placeholder, setPlaceholder] = useState('Measure')
+  const [placeholder, setPlaceholder] = useState('Measure');
+  const [inputExt, setInputExt] = useState('  ');
 
   const [ftFormula, setFtFormula] = useState();
   const [inchesFormula, setInchesFormula] = useState();
@@ -27,6 +28,7 @@ export default function Measure() {
     if(measureBtnNum === 1){
       setFtBtn(On); setInchesBtn(Off); setMetroBtn(Off); setBtn(Off); setMmBtn(Off);
       setPlaceholder("feet(s)");
+      setInputExt(' ft ');
       setFtFormula(numVal);
       setInchesFormula((numVal * 12).toFixed(3)); 
       setMetroFormula((numVal / 3.281).toFixed(3)); 
@@ -36,6 +38,7 @@ export default function Measure() {
     if(measureBtnNum === 2){
       setFtBtn(Off); setInchesBtn(On); setMetroBtn(Off); setBtn(Off); setMmBtn(Off);
       setPlaceholder("inches(s)");
+      setInputExt(' in ');
       setFtFormula((numVal / 12).toFixed(3));
       setInchesFormula(numVal); 
       setMetroFormula((numVal / 39.37).toFixed(3)); 
@@ -45,6 +48,7 @@ export default function Measure() {
     if(measureBtnNum === 3){
       setFtBtn(Off); setInchesBtn(Off); setMetroBtn(On); setBtn(Off); setMmBtn(Off);
       setPlaceholder("metter(s)");
+      setInputExt(' m ');
       setFtFormula((numVal * 3.28084).toFixed(3));
       setInchesFormula((numVal * 39.3701).toFixed(3)); 
       setMetroFormula(numVal); 
@@ -54,6 +58,7 @@ export default function Measure() {
     if(measureBtnNum === 4){
       setFtBtn(Off); setInchesBtn(Off); setMetroBtn(Off); setBtn(On); setMmBtn(Off);
       setPlaceholder("centimeter(s)");
+      setInputExt(' cm ');
       setFtFormula((numVal / 30.484).toFixed(3));
       setInchesFormula((numVal / 2.54).toFixed(3)); 
       setMetroFormula((numVal / 100).toFixed(3)); 
@@ -63,6 +68,7 @@ export default function Measure() {
     if(measureBtnNum === 5){
       setFtBtn(Off); setInchesBtn(Off); setMetroBtn(Off); setBtn(Off); setMmBtn(On);
       setPlaceholder("millimeter(s)");
+      setInputExt(' mm ');
       setFtFormula((numVal / 304.8).toFixed(3));
       setInchesFormula((numVal / 25.4).toFixed(3)); 
       setMetroFormula((numVal / 1000).toFixed(3)); 
@@ -92,56 +98,56 @@ export default function Measure() {
           <Text style={styles.infoTextTitle}>Measure Converter</Text>
 
           <View style={styles.metroContainer}>
+              <Text style={styles.numResult}> {ftFormula} ft</Text>
             <TouchableOpacity  onPress={() => {setMeasureBtnNum(1)} }>
               <Image
                 source={ftBtn}
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text style={styles.numResult}> {ftFormula} ft</Text>
           </View>
 
            <View style={styles.metroContainer}>
+              <Text style={styles.numResult}> {inchesFormula} in</Text>
             <TouchableOpacity   onPress={() => {setMeasureBtnNum(2)} }>
               <Image
                 source={inchesBtn}
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text style={styles.numResult}> {inchesFormula} in</Text>
           </View>
 
           <View style={styles.metroContainer}>
+              <Text style={styles.numResult}>{metroFormula} m</Text>
             <TouchableOpacity  onPress={() => {setMeasureBtnNum(3)} }>
               <Image
                 source={metroBtn}
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text style={styles.numResult}>{metroFormula} m</Text>
           </View>
 
           <View style={styles.metroContainer}>
+              <Text style={styles.numResult}>{cmFormula} cm</Text>
             <TouchableOpacity  onPress={() => {setMeasureBtnNum(4)} }>
               <Image
                 source={cmBtn}
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text style={styles.numResult}>{cmFormula} cm</Text>
           </View>
           
           <View style={styles.metroContainer}>
+              <Text style={styles.numResult}>{mmFormula} mm</Text>
             <TouchableOpacity  onPress={() => {setMeasureBtnNum(5)} }>
               <Image
                 source={mmBtn}
                 style={{ width: 90, height: 25 }}
                 />
             </TouchableOpacity>
-            <Text style={styles.numResult}>{mmFormula} mm</Text>
           </View>
          
-
+          <View style={styles.inputCont}>
             <TextInput
               style={styles.input}
               underlineColorAndroid="transparent"
@@ -153,6 +159,8 @@ export default function Measure() {
               value={numVal}
               onChangeText={setNumVal}
             /> 
+            <Text style={styles.inputExt}>({inputExt})</Text>
+          </View>
 
         </KeyboardAvoidingView>
       </View>
@@ -174,11 +182,23 @@ const styles = StyleSheet.create({
     width: '33%',
     borderColor: "#4a4e69",
     borderWidth: 1,
-    paddingLeft: 10
+    paddingRight: 10,
+    textAlign: 'right',
+    // left: 100
+  },
+  inputCont: {
+    flexDirection: 'row',
+    left: 100
+  },
+  inputExt: {
+    paddingLeft: 5,
+    bottom: -15
   },
   metroContainer: {
     flexDirection: 'row',
+    justifyContent: 'flex-end',
     marginBottom: 10,
+    paddingRight: 40,
   },
   infoTextTitle: {
     textAlign:'center', 
@@ -186,7 +206,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   numResult: {
-    paddingLeft: 15,
+    paddingRight: 15,
     fontSize: 17,
     fontWeight: 800,
   }

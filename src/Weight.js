@@ -32,23 +32,23 @@ export default function Weight() {
   convertAll = () => {
     if(convertOne === 1){
       setGrams(`${kilo * 1000}`)
-      setLbPound(`${kilo * 2.205}`)
-      setOz(`${kilo * 35.274}`)
+      setLbPound(`${(kilo * 2.205).toFixed(2)}`)
+      setOz(`${(kilo * 35.274).toFixed(2)}`)
     }
     if(convertOne === 2){
       setKilo(`${grams / 1000}`)
-      setLbPound(`${grams / 453.6}`)
-      setOz(`${grams / 28.35}`)
+      setLbPound(`${(grams / 453.6).toFixed(2)}`)
+      setOz(`${(grams / 28.35).toFixed(2)}`)
     }
     if(convertOne === 3){
-      setKilo(`${lbPound / 2.205}`)
-      setGrams(`${lbPound * 453.6}`)
-      setOz(`${lbPound * 16}`)
+      setKilo(`${(lbPound / 2.205).toFixed(2)}`)
+      setGrams(`${(lbPound * 453.6).toFixed(2)}`)
+      setOz(`${(lbPound * 16).toFixed(2)}`)
     }
     if(convertOne === 4){
-      setKilo(`${oz / 35.274}`)
-      setGrams(`${oz * 28.35}`)
-      setLbPound(`${oz / 16}`)
+      setKilo(`${(oz / 35.274).toFixed(2)}`)
+      setGrams(`${(oz * 28.35).toFixed(2)}`)
+      setLbPound(`${(oz / 16).toFixed(2)}`)
     }
   }
 

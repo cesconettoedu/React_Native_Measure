@@ -7,7 +7,7 @@
     "icon": "./assets/eulogoSquareMeasure.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/edFaceProfile.jpg",
+      "image": "./assets/eulogo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

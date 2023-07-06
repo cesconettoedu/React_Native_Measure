@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "measure",
+    "name": "Eds Measure",
     "slug": "eds-measure",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/eulogoSquareMeasure.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/edFaceProfile.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,9 +19,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/eulogoSquareMeasure.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.cesconettoedu.edsmeasure"
     },
     "web": {
       "favicon": "./assets/favicon.png"

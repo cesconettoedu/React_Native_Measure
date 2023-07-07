@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, StyleSheet, KeyboardAvoidingView, TouchableOpacity,Image } from "react-native";
 import On from '../assets/tests/on.png'
 import Off from '../assets/tests/off.png'
-
+import icon from '../assets/tests/trena.png'
 
 
 export default function Measure() {
@@ -94,8 +94,14 @@ export default function Measure() {
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
         >
-          
-          <Text style={styles.infoTextTitle}>Measure Converter</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingBottom: 10}}>
+            <Text style={styles.infoTextTitle}>Measure Converter   </Text>
+            <Image style={styles.icon}
+              source={icon}
+              resizeMode="contain"
+              alt="icon"
+            /> 
+          </View>
 
           <View style={styles.metroContainer}>
               <Text style={styles.numResult}> {ftFormula} ft</Text>
@@ -203,7 +209,10 @@ const styles = StyleSheet.create({
   infoTextTitle: {
     textAlign:'center', 
     fontSize: 20,
-    paddingBottom: 10,
+  },
+  icon: {
+    width: 40,
+    height: 40
   },
   numResult: {
     paddingRight: 15,

@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Button, Image, TouchableOpacity } from "react-n
 import DateTimePicker from "@react-native-community/datetimepicker";
 import arrow from '../assets/tests/bidirectionArrow1.png'
 import clock from '../assets/tests/clock.png'
+import icon from '../assets/tests/hourconvert.png'
+
 
 export default function Time() {
 
@@ -109,8 +111,14 @@ export default function Time() {
   return (
    <View style={styles.timeAll}>
 
-       
-      <Text style={styles.infoTextTitle}>Time Converter</Text>
+      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingBottom: 10}}>
+        <Text style={styles.infoTextTitle}>Time Converter   </Text>
+        <Image style={styles.icon}
+          source={icon}
+          resizeMode="contain"
+          alt="icon"
+        /> 
+      </View>
       
       <View style={styles.timeContainer}>
         <View>
@@ -195,7 +203,11 @@ const styles = StyleSheet.create({
   infoTextTitle:{
     textAlign:'center', 
     fontSize: 20,
-    paddingBottom: 10,
+    
+  },
+  icon: {
+    width: 40,
+    height: 40
   },
   infoText:{
     textAlign:'center'

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image, StyleSheet, TextInput, Pressable } from "react-native";
 import arrow from '../assets/tests/bidirectionArrow1.png'
+import icon from '../assets/tests/iconweight.png'
 
 
 export default function Weight() {
@@ -68,8 +69,15 @@ export default function Weight() {
 
   return (
     < View style={styles.container}>
-    
-      <Text style={styles.infoTextTitle}>Weight Converter</Text>
+      
+      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingBottom: 10}}>
+        <Text style={styles.infoTextTitle}>Weight Converter   </Text>
+        <Image style={styles.icon}
+          source={icon}
+          resizeMode="contain"
+          alt="icon"
+        /> 
+      </View>
 
 
       <View style={styles.weightCont}>
@@ -179,7 +187,10 @@ const styles = StyleSheet.create({
   infoTextTitle:{
     textAlign:'center', 
     fontSize: 20,
-    paddingBottom: 10,
+  },
+  icon: {
+    width: 40,
+    height: 40
   },
   weightCont: {
     flexDirection: 'row',

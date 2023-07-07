@@ -7,9 +7,9 @@
     "icon": "./assets/eulogoSquareMeasure.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/eulogo.png",
+      "image": "./assets/eulogoSquareMeasure.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -20,7 +20,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/eulogoSquareMeasure.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000000"
       },
       "package": "com.cesconettoedu.edsmeasure"
     },

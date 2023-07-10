@@ -179,7 +179,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#f6f6f6',
     justifyContent: 'center',
-    marginBottom: 20
+    marginBottom: 10,
+    borderRadius: 5
   },
   input: {
     borderRadius: 5,
@@ -190,7 +191,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingRight: 10,
     textAlign: 'right',
-    // left: 100
+    marginBottom: 10,
   },
   inputCont: {
     flexDirection: 'row',

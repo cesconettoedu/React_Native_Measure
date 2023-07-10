@@ -70,7 +70,7 @@ export default function Weight() {
   return (
     < View style={styles.container}>
       
-      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingBottom: 10}}>
+      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingBottom: 5}}>
         <Text style={styles.infoTextTitle}>Weight Converter   </Text>
         <Image style={styles.icon}
           source={icon}
@@ -181,8 +181,9 @@ export default function Weight() {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 20,
-    backgroundColor: '#f6f6f6'
+    marginBottom: 10,
+    backgroundColor: '#f6f6f6',
+    borderRadius: 5
   },
   infoTextTitle:{
     textAlign:'center', 
@@ -203,7 +204,8 @@ const styles = StyleSheet.create({
     width: 70,
     borderColor: "#4a4e69",
     borderWidth: 1,
-    paddingLeft: 5
+    paddingLeft: 5,
+    marginBottom: 10,
   },
   arrows: {
     bottom: -35,

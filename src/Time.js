@@ -111,7 +111,7 @@ export default function Time() {
   return (
    <View style={styles.timeAll}>
 
-      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingBottom: 10}}>
+      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingBottom: 1}}>
         <Text style={styles.infoTextTitle}>Time Converter   </Text>
         <Image style={styles.icon}
           source={icon}
@@ -192,7 +192,9 @@ export default function Time() {
 const styles = StyleSheet.create({
   timeAll: {
     backgroundColor: '#f6f6f6',
-    height: 215
+    height: 195,
+    borderRadius: 5,
+    
   },
   timeContainer: {
     flexDirection: 'row',
@@ -222,8 +224,8 @@ const styles = StyleSheet.create({
     bottom: -40
   },
   clock: {
-    width: 90,
-    height:80,
+    width: 70,
+    height:60,
     
   }
 

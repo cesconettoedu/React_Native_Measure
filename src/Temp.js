@@ -28,50 +28,50 @@ export default function Time() {
         /> 
       </View>
 
-      <View style={styles.weightCont}>
-
-      <View style={styles.wichOne}>
-          <Text>C</Text>  
-          
-            <TextInput
-              style={styles.input}
-              underlineColorAndroid="transparent"
-              placeholder='  C'
-              placeholderTextColor="#D3D3D3"
-              numeric
-              keyboardType="numeric"
-              maxLength={8}
-              onFocus={onFocusC}
-              //value={String(kilo)}
-              //onChangeText={setKilo}
-            /> 
-               
-        </View>
-      
-        <Image style={styles.arrows}
-          source={arrow}
-          resizeMode="contain"
-          alt="arrow"
-        /> 
-
+      <View style={styles.tempCont}>
 
         <View style={styles.wichOne}>
-          <Text>F</Text>  
-          
-            <TextInput
-              style={styles.input}
-              underlineColorAndroid="transparent"
-              placeholder='  F'
-              placeholderTextColor="#D3D3D3"
-              numeric
-              keyboardType="numeric"
-              maxLength={8}
-              onFocus={onFocusF}
-              //value={String(kilo)}
-              //onChangeText={setKilo}
-            /> 
-               
-        </View>
+            
+              <TextInput
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                placeholder='°C'
+                placeholderTextColor="#D3D3D3"
+                numeric
+                keyboardType="numeric"
+                maxLength={8}
+                onFocus={onFocusC}
+                //value={String(kilo)}
+                //onChangeText={setKilo}
+              /> 
+            <Text style={styles.tempResult}>00 °C</Text>  
+                
+          </View>
+        
+          <Image style={styles.arrows}
+            source={arrow}
+            resizeMode="contain"
+            alt="arrow"
+          /> 
+
+
+          <View style={styles.wichOne}>
+            <Text style={styles.tempResult}>32 °F</Text>  
+            
+              <TextInput
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                placeholder='°F'
+                placeholderTextColor="#D3D3D3"
+                numeric
+                keyboardType="numeric"
+                maxLength={8}
+                onFocus={onFocusF}
+                //value={String(kilo)}
+                //onChangeText={setKilo}
+              /> 
+                
+          </View>
 
         </View>
     </View>
@@ -81,7 +81,7 @@ export default function Time() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#f6f6f6',
-    height: 100,
+    height: 95,
     borderRadius: 5,
     marginBottom: 10,
   },
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     height: 40
   },
 
-  weightCont: {
+  tempCont: {
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
@@ -107,8 +107,8 @@ const styles = StyleSheet.create({
     width: 70,
     borderColor: "#4a4e69",
     borderWidth: 1,
-    paddingLeft: 5,
     marginBottom: 10,
+    textAlign: 'center'
   },
   arrows: {
     bottom: -20,
@@ -118,6 +118,11 @@ const styles = StyleSheet.create({
   wichOne: {
     alignItems:'center',
     flexDirection: 'row',
+  },
+  tempResult: {
+    
+    fontSize: 17,
+    fontWeight: 800,
   }  
  
 

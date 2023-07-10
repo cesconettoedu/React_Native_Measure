@@ -192,7 +192,7 @@ export default function Time() {
 const styles = StyleSheet.create({
   timeAll: {
     backgroundColor: '#f6f6f6',
-    height: 195,
+    height: 185,
     borderRadius: 5,
     
   },

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity } from "react-native";
 import arrow from '../assets/tests/bidirectionArrow1.png'
 import icon from '../assets/tests/tempIcon.png'
@@ -6,14 +6,44 @@ import icon from '../assets/tests/tempIcon.png'
 
 export default function Time() {
 
- 
+  const [convertOne, setConvertOne] = useState();
+  const [c, setC] = useState();
+  const [f, setF] = useState();
 
   onFocusC = () => {
     setConvertOne(1)
   }
   onFocusF = () => {
-    setConvertOne(1)
+    setConvertOne(2)
   }
+
+
+
+  convertAll = () => {
+    if(convertOne === 1){
+      setF(`${((c * (9/5)) + 32).toFixed(1)}`)
+    }
+    if(convertOne === 2){
+      if(f === ''){
+        setC('')
+      }else{
+
+        setC(`${((f - 32) * (5/9)).toFixed(1)}`)
+      }
+    }
+    
+  }
+
+
+
+  useEffect(() => {
+      convertAll(convertOne);
+    },[ c, f])
+
+  useEffect(() => {
+    setF('');
+    setC('');
+  },[convertOne])
 
 
   return (
@@ -39,12 +69,12 @@ export default function Time() {
                 placeholderTextColor="#D3D3D3"
                 numeric
                 keyboardType="numeric"
-                maxLength={8}
+                maxLength={5}
                 onFocus={onFocusC}
-                //value={String(kilo)}
-                //onChangeText={setKilo}
+                value={String(c)}
+                onChangeText={setC}
               /> 
-            <Text style={styles.tempResult}>00 °C</Text>  
+            <Text style={styles.tempResult}>{c} °C</Text>  
                 
           </View>
         
@@ -56,7 +86,7 @@ export default function Time() {
 
 
           <View style={styles.wichOne}>
-            <Text style={styles.tempResult}>32 °F</Text>  
+            <Text style={styles.tempResult}>{f} °F</Text>  
             
               <TextInput
                 style={styles.input}
@@ -65,10 +95,10 @@ export default function Time() {
                 placeholderTextColor="#D3D3D3"
                 numeric
                 keyboardType="numeric"
-                maxLength={8}
+                maxLength={5}
                 onFocus={onFocusF}
-                //value={String(kilo)}
-                //onChangeText={setKilo}
+                value={String(f)}
+                onChangeText={setF}
               /> 
                 
           </View>

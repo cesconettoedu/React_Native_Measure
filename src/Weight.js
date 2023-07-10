@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, StyleSheet, TextInput, Pressable } from "react-native";
+import { View, Text, Image, StyleSheet, TextInput } from "react-native";
 import arrow from '../assets/tests/bidirectionArrow1.png'
 import icon from '../assets/tests/iconweight.png'
 

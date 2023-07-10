@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity } from "react-native";
 import arrow from '../assets/tests/bidirectionArrow1.png'
-import icon from '../assets/tests/hourconvert.png'
+import icon from '../assets/tests/tempIcon.png'
 
 
 export default function Time() {
@@ -19,7 +19,7 @@ export default function Time() {
   return (
     <View style={styles.container}>
       
-      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingBottom: 1}}>
+      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingBottom: 1, paddingTop: 3}}>
         <Text style={styles.infoTextTitle}>Temperature Converter   </Text>
         <Image style={styles.icon}
           source={icon}
@@ -81,9 +81,10 @@ export default function Time() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#f6f6f6',
-    height: 95,
+    height: 90,
     borderRadius: 5,
     marginBottom: 10,
+    marginTop: 5
   },
   infoTextTitle:{
     textAlign:'center', 
@@ -91,8 +92,8 @@ const styles = StyleSheet.create({
     
   },
   icon: {
-    width: 40,
-    height: 40
+    width: 35,
+    height: 35
   },
 
   tempCont: {

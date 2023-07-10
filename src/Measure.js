@@ -91,9 +91,6 @@ export default function Measure() {
     <View style={styles.container}>
       
       <View >
-        <KeyboardAvoidingView
-          behavior={Platform.OS === "ios" ? "padding" : "height"}
-        >
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingBottom: 10}}>
             <Text style={styles.infoTextTitle}>Measure Converter   </Text>
             <Image style={styles.icon}
@@ -153,6 +150,7 @@ export default function Measure() {
             </TouchableOpacity>
           </View>
          
+         <KeyboardAvoidingView>
           <View style={styles.inputCont}>
             <TextInput
               style={styles.input}
@@ -164,11 +162,12 @@ export default function Measure() {
               maxLength={8}
               value={numVal}
               onChangeText={setNumVal}
-            /> 
+              /> 
             <Text style={styles.inputExt}>({inputExt})</Text>
           </View>
-
         </KeyboardAvoidingView>
+
+        
       </View>
     
     </View>

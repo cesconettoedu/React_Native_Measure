@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, Text, Image, SafeAreaView } from "react-native";
 
 
 import Temp from './src/Temp'
@@ -26,6 +26,9 @@ export default function App() {
 
   return (
     <View style={{backgroundColor: '#EDECE3'}}>
+      <SafeAreaView>
+
+      
 
       {!showLogo &&
         // <View style={styles.container}>
@@ -59,7 +62,7 @@ export default function App() {
           <Time/>      
         </View>
       }
-  
+    </SafeAreaView>
     </View>
   );
 }

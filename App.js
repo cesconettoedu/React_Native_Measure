@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { View, StyleSheet, Text, Image, SafeAreaView } from "react-native";
+import { View, StyleSheet, Text, Image, SafeAreaView, ScrollView } from "react-native";
 
 
 import Temp from './src/Temp'
@@ -56,10 +56,12 @@ export default function App() {
   
       {showLogo &&
         <View style={styles.container}>
-          <Temp/>
-          <Weight/>
-          <Measure/>
-          <Time/>      
+          <ScrollView>
+            <Temp/>
+            <Weight/>
+            <Measure/>
+            <Time/>      
+          </ScrollView>
         </View>
       }
     </SafeAreaView>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TextInput, Image } from "react-native";
 import arrow from '../assets/tests/bidirectionArrow1.png'
 import icon from '../assets/tests/tempIcon.png'
 
@@ -17,8 +17,6 @@ export default function Time() {
     setConvertOne(2)
   }
 
-
-
   convertAll = () => {
     if(convertOne === 1){
       setF(`${((c * (9/5)) + 32).toFixed(1)}`)
@@ -30,10 +28,8 @@ export default function Time() {
 
         setC(`${((f - 32) * (5/9)).toFixed(1)}`)
       }
-    }
-    
+    }    
   }
-
 
 
   useEffect(() => {
@@ -83,7 +79,6 @@ export default function Time() {
             resizeMode="contain"
             alt="arrow"
           /> 
-
 
           <View style={styles.wichOne}>
             <Text style={styles.tempResult}>{f} °F</Text>  

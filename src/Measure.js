@@ -77,12 +77,10 @@ export default function Measure() {
     }        
   }
   
-
   useEffect(() => {
     measureBtn(measureBtnNum)
   },[measureBtnNum, numVal])
 
-  
   useEffect(() => {
    
   },[])
@@ -167,7 +165,6 @@ export default function Measure() {
           </View>
         </KeyboardAvoidingView>
 
-        
       </View>
     
     </View>

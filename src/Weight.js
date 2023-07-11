@@ -171,7 +171,6 @@ export default function Weight() {
             onChangeText={setOz}
           /> 
         </View>
- 
 
       </View>
        

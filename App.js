@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { View, StyleSheet, Text, Image, SafeAreaView, ScrollView } from "react-native";
 
 
@@ -7,10 +6,6 @@ import Temp from './src/Temp'
 import Measure from './src/Measure';
 import Time from './src/Time';
 import Weight from './src/Weight';
-
-import trena from './assets/gifs/trena.gif'
-import scale from './assets/gifs/scale.gif'
-import time from './assets/gifs/time.gif'
 import eulogo from './assets/eulogoSquareMeasure.png'
 
 export default function App() {
@@ -27,9 +22,6 @@ export default function App() {
   return (
     <View style={{backgroundColor: '#EDECE3'}}>
       <SafeAreaView>
-
-      
-
       {!showLogo &&
      
         <View style={styles.containerLogo}>

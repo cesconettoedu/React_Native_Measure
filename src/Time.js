@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Button, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import arrow from '../assets/tests/bidirectionArrow1.png'
 import clock from '../assets/tests/clock.png'
@@ -102,11 +102,7 @@ export default function Time() {
     } else {
       setMin(newMin)
     }
-    
   }
-
-
-
 
   return (
    <View style={styles.timeAll}>
@@ -194,7 +190,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#f6f6f6',
     height: 185,
     borderRadius: 5,
-    
   },
   timeContainer: {
     flexDirection: 'row',
@@ -226,7 +221,5 @@ const styles = StyleSheet.create({
   clock: {
     width: 70,
     height:60,
-    
   }
-
 });

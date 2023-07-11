@@ -112,7 +112,7 @@ export default function Time() {
    <View style={styles.timeAll}>
 
       <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingBottom: 1}}>
-        <Text style={styles.infoTextTitle}>Time Converter   </Text>
+        <Text style={styles.infoTextTitle}>Time  </Text>
         <Image style={styles.icon}
           source={icon}
           resizeMode="contain"
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
   infoTextTitle:{
     textAlign:'center', 
     fontSize: 20,
-    
+    fontStyle: "italic"    
   },
   icon: {
     width: 40,

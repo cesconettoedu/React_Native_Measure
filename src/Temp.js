@@ -50,7 +50,7 @@ export default function Time() {
     <View style={styles.container}>
       
       <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingBottom: 1, paddingTop: 3}}>
-        <Text style={styles.infoTextTitle}>Temperature Converter   </Text>
+        <Text style={styles.infoTextTitle}>Temperature   </Text>
         <Image style={styles.icon}
           source={icon}
           resizeMode="contain"
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   infoTextTitle:{
     textAlign:'center', 
     fontSize: 20,
-    
+    fontStyle: "italic"
   },
   icon: {
     width: 35,
@@ -151,7 +151,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   tempResult: {
-    
     fontSize: 17,
     fontWeight: 800,
   }  

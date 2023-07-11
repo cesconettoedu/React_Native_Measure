@@ -92,7 +92,7 @@ export default function Measure() {
       
       <View >
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingBottom: 10}}>
-            <Text style={styles.infoTextTitle}>Measure Converter   </Text>
+            <Text style={styles.infoTextTitle}>Measure   </Text>
             <Image style={styles.icon}
               source={icon}
               resizeMode="contain"
@@ -209,6 +209,7 @@ const styles = StyleSheet.create({
   infoTextTitle: {
     textAlign:'center', 
     fontSize: 20,
+    fontStyle: "italic"
   },
   icon: {
     width: 40,

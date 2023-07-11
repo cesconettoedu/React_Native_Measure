@@ -31,19 +31,7 @@ export default function App() {
       
 
       {!showLogo &&
-        // <View style={styles.container}>
-        //   <Image
-        //     source={trena}
-        //     alt="trena"
-        //   />
-        //   <Image
-        //     source={scale}
-        //     alt="scale"
-        //   />
-        //   <Image
-        //     source={time}
-        //     alt="time"
-        //   /> 
+     
         <View style={styles.containerLogo}>
           <Image
             source={eulogo}

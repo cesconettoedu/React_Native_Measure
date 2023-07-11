@@ -49,7 +49,7 @@ export default function App() {
             source={eulogo}
             alt="eulogo"
           />
-          <Text style={styles.title}> Ed's Measure </Text>
+          <Text style={styles.title}> Ed's Converter </Text>
 
         </View>
       }

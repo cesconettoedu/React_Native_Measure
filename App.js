@@ -36,7 +36,18 @@ export default function App() {
   
       {showLogo &&
         <View style={styles.container}>
-          <ScrollView>
+
+        <View style={{flexDirection: 'row', marginBottom: 2}}>
+          <Image 
+            source = {eulogo} 
+            style = {{ width: 45 , height: 45 , marginRight: 30, borderRadius: 30, backgroundColor: '#000000' }}
+            />   
+          <Text style={styles.eds}>Ed's Converter</Text>
+        </View>
+
+
+
+          <ScrollView style={{height:"93%"}}>
             <Temp/>
             <Weight/>
             <Measure/>
@@ -66,5 +77,11 @@ const styles = StyleSheet.create({
     color: '#7FB069',
     fontSize: 40,
     fontWeight: 600
+  },
+  eds: {
+    alignSelf: 'center',
+    fontSize: 20,
+    fontWeight: "600",
+    paddingLeft: 30 
   },
 });
